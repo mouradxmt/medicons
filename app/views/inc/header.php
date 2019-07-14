@@ -29,7 +29,6 @@
 
 		<!-- Layout-->
 		<div class="layout">
-
 			<!-- Header-->
 			<header class="header header-center undefined">
 				<div class="container-fluid">
@@ -49,12 +48,16 @@
 								else{
 									if($_SESSION['userType']=='medecin'){
 								?>
-								<li><a href="<?=URLROOT?>/pages/medecin"><i class="fa fa-stethoscope"></i> Mon compte</a></li>
+								<li><a href="<?=URLROOT?>/panel/medecin"><i class="fa fa-stethoscope"></i> Mon compte</a></li>
 								<?php }
 									elseif($_SESSION['userType']=='patient'){
 								?>
-								<li><a href="<?=URLROOT?>/pages/patient"><i class="fa fa-user-injured"></i> Mon compte</a></li>
-									<?php }} ?>
+								<li><a href="<?=URLROOT?>/panel/patient"><i class="fa fa-user-injured"></i> Mon compte</a></li>
+									<?php }
+								?>
+								<li><a href="<?=URLROOT?>/users/logout"><i class="fa fa-sign-out-alt"></i> Déconnexion</a></li>
+								<?php
+								} ?>
 								</ul>
 							</div>
 						</div>

@@ -6,10 +6,8 @@
 								<!-- Text widget-->
 								<aside class="widget widget_text">
 									<div class="textwidget">
-										<p><img src="assets/images/logo-light.png" width="100" alt=""></p>
-										<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut non enim eleifend felis pretium feugiat.</p>E-mail: <a href="mailto:support@core.com">support@core.com</a> <br/>
-										Phone: 8 800 123 4567 <br/>
-										Fax: 8 800 123 4567 <br/>
+										<p><img src="<?=SITELOGOLIGHT?>" width="100" alt=""></p>
+										<p>MEDICONS est une plateforme de consultation médicale, réalise en premier lieu dans un stage d'initiation au CHU par des étudiants ingénieurs de l'ENSA - Fès en génie Informatique.</p>
 									</div>
 								</aside>
 							</div>
@@ -17,22 +15,21 @@
 								<!-- Recent entries widget-->
 								<aside class="widget widget_recent_entries">
 									<div class="widget-title">
-										<h5>Recent Posts</h5>
+										<h5>Contact</h5>
 									</div>
-									<ul>
-										<li><a href="#">Experience the sound of a modern and clean 360° Bluetooth Speaker.</a> <span class="post-date">May 8, 2016</span></li>
-										<li><a href="#">Experience the sound of a modern and clean 360° Bluetooth Speaker.</a> <span class="post-date">April 7, 2016</span></li>
-										<li><a href="#">Experience the sound of a modern and clean 360° Bluetooth Speaker.</a> <span class="post-date">April 7, 2016</span></li>
-									</ul>
+									E-mail: <a href="mailto:mtouaa.mourad@gmail.com">mtouaa.mourad@gmail.com</a> <br/>
+										Phone: +212 659 01 81 66 <br/>
 								</aside>
 							</div>
 							<div class="col-md-6 col-lg-3">
 								<!-- Twitter widget-->
-								<aside class="widget twitter-feed-widget">
+								<aside class="widget">
 									<div class="widget-title">
-										<h5>Twitter Feed</h5>
+										<h5>Equipe de développement</h5>
 									</div>
-									<div class="twitter-feed" data-twitter="345170787868762112" data-number="1"></div>
+									MTOUAA Mourad<br/>
+									RAMDANI Chaimae<br/>
+									ASSAL Siham<br/>
 								</aside>
 							</div>
 							<div class="col-md-6 col-lg-3">
@@ -50,7 +47,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
-									<div class="text-center"><span class="copyright">© 2017 Core, All Rights Reserved. Design with love by <a href="http://2the.me/">2the.me</a></span></div>
+									<div class="text-center"><span class="copyright">© 2019 MEDICONS, Under GNU General Public License .</span></div>
 								</div>
 							</div>
 						</div>

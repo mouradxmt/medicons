@@ -8,6 +8,9 @@ class Users extends Controller{
     }
     
     public function register(){
+        if($_SESSION['loggedIn']){
+        notAuthorized();
+        }else{
         // check for posts
         if($_SERVER['REQUEST_METHOD']=='POST'){
             // sanitizing the inputs (to avoid sql injection)
@@ -80,8 +83,11 @@ class Users extends Controller{
             $this->view('users/register',$data);
         }
     }
+    }
     public function login(){
-        
+        if($_SESSION['loggedIn'])
+        notAuthorized();
+        else{
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 // sanitizing the inputs (to avoid sql injection)
             $_POST = filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
@@ -107,9 +113,7 @@ class Users extends Controller{
                   $loggedIn=$this->userModel->login($data['email'],$data['password']); // returns the row of the user if the password matches, else return false
                     if($loggedIn){
                         // if the email and the password matchs the row in DB
-                        $_SESSION['userType']=$loggedIn->type;
-                        $_SESSION['loggedIn']=true;
-                        redirect('pages/index');
+                       startUserSession($loggedIn);
                     }
                 }else{  
                     $this->view('users/login',$data);
@@ -122,5 +126,9 @@ class Users extends Controller{
                     ];
                 $this->view('users/login',$data);
     }
+    }}
+public function logout(){
+    endUserSession();
 }
+
 }

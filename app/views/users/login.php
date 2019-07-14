@@ -22,7 +22,7 @@
 							<div class="col-md-4 m-auto">
 								<div class="up-logo">
                                     <p class="text-center m-b-50"><img src="<?=SITELOGO?>" width="100" alt=""></p>
-                                    <?= flash('register_success')?>
+									<?= flash('register_success')?>
 								</div>
 								<div name="loginForm" class="up-form">
 									<form method="post">

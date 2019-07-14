@@ -19,4 +19,12 @@
 
       $this->view('pages/about', $data);
     }
+    public function error(){
+      $data = [
+        'message' => 'Vous n\'êtes pas autorisés d\'acceder à cette page. Veuillez s\'authentifier'
+      ];
+
+      $this->view('pages/error', $data);
+    }
+    
   }
