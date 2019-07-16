@@ -20,14 +20,20 @@ class Panels extends Controller{
           notAuthorized();
         }else{
           // panel de medecin
+          $user=[
+            'id'    =>  $_SESSION['userId'],
+            'type'  =>  'medecin'
+        ];
+        $Medecin=$this->panelModel->getPorMById($user);
         $data=[
           // parametres utilisees pour les sous panneau
           'params' => $page,
           // resultats de consultation
-          'consul' => $this->panelModel->medConsulterAll('only','Attente')
+          'consul' => $this->panelModel->medConsulterAll('only','Attente'),
+          'medecin' => $Medecin
         ];
          
-            $this->view('panels/consultation',$data);
+            $this->view('panels/home',$data);
         }
       }
       public function admin(){

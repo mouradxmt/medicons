@@ -5,6 +5,11 @@ class Panel{
         $this->db = new Database;
     }
     public function medConsulterAll($forMedecin,$filter){
+        $user=[
+            'id'    =>  $_SESSION['userId'],
+            'type'  =>  $_SESSION['userType']
+        ];
+        $codePorM=$this->getPorMById($user)->codeMedecin;
         $sql = "SELECT * ";
         $sql .="FROM patient,medecin,consultation,service ";
         $sql .="WHERE medecin.codeService = service.codeService ";
@@ -19,11 +24,7 @@ class Panel{
         $sql .="ORDER BY consultation.numeroConsultation DESC  ";
         $this->db->query($sql);
         if($forMedecin=="only"){
-            $user=[
-                'id'    =>  $_SESSION['userId'],
-                'type'  =>  $_SESSION['userType']
-            ];
-            $this->db->bind(':codeMedecin',($this->getPorMById($user)->codeMedecin));
+            $this->db->bind(':codeMedecin',$codePorM);
         }
         $rows= $this->db->resultSet();
         return $rows;

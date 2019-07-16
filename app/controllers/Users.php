@@ -8,7 +8,7 @@ class Users extends Controller{
     }
     
     public function register(){
-        if($_SESSION['loggedIn']){
+        if(isLoggedIn()){
         notAuthorized();
         }else{
         // check for posts
@@ -85,7 +85,7 @@ class Users extends Controller{
     }
     }
     public function login(){
-        if($_SESSION['loggedIn'])
+        if(isLoggedIn())
         notAuthorized();
         else{
             if($_SERVER['REQUEST_METHOD']=='POST'){

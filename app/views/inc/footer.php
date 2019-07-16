@@ -112,6 +112,8 @@
 		<script src="<?=URLROOT?>/assets/js/plugins.min.js"></script>
 		<script src="<?=URLROOT?>/assets/js/charts.js"></script>
 		<script src="<?=URLROOT?>/assets/js/custom.min.js"></script>
+		<script src="<?=URLROOT?>/assets/js/panel.js"></script>
+		
 
 	</body>
 

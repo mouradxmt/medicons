@@ -1,46 +1,4 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
-<section class="module-page-title">
-					<div class="container">
-						<div class="row-page-title">
-							<div class="page-title-captions">
-                        
-								<h1 class="h5">S'authentifier</h1>
-							</div>
-							<div class="page-title-secondary">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="<?=URLROOT?>">Home</a></li>
-								</ol>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="module">
-					<div class="container-fluid">
-          <h3 class='text-center'>Hola<?=$data['params']?></h3>
-						<div class="row">
-              <div class="col-md-2">
-              <aside class="widget widget_categories" id="compte-page">
-						<div class="special-heading">
-							<h6>E-services</h6>
-						</div>
-						<ul>
-							<li><a id="attScolarite" href="javascript:void(0)">Certificat de scolarité</a></li>
-							<li><a id="photo" class="blink" href="javascript:void(0)">Photographie</a></li>
-														<li><a id="ddeStage" href="javascript:void(0)">Demande de stage</a></li>
-							<li><a id="cnvStage" href="javascript:void(0)">Convention de stage</a></li>
-							<!--<li><a href="javascript:void(0)">Certificat de réussite</a></li>
-							<li><a href="javascript:void(0)">Relevé de notes</a></li>-->
-														<li><a href="docs/fiche_appr.docx">Fiche d'appréciation PFE</a></li>
-							<li><a id="telechargement" href="javascript:void(0)">Cours,TD,TP</a></li>
-							<li><a id="langueCoor" href="javascript:void(0)">Company program</a></li>
-							<!--<li><a id="langueCoor" href="javascript:void(0)">Langue Corèene</a></li>
-								<li><a id="orientation" href="javascript:void(0)">Fiche d’orientation</a></li>-->
-							<li><a id="notesAVR" href="javascript:void(0)">Résultats</a></li>
-						</ul>
-					</aside>
-              </div>
-<div class = "col-md-10">
-            <table class="table table-striped">
+<table class="table table-striped">
                     <thead>
                       <tr>
                         <th class="text-center">#</th>
@@ -90,9 +48,3 @@
                       
                     </tbody>
                   </table>
-                  </div>
-							</div>
-					</div>
-				</section>
-
-<?php require APPROOT . '/views/inc/footer.php'; ?>
