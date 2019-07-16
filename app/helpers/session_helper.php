@@ -1,17 +1,5 @@
 <?php
 session_start();
-
-if(!isset($_SESSION['loggedIn']))
-$_SESSION['loggedIn']=false;
-
-if(!isset($_SESSION['userType']))
-$_SESSION['userType']='';
-
-if(!isset($_SESSION['userId']))
-$_SESSION['userId']='';
-
-if(!isset($_SESSION['userMail']))
-$_SESSION['userMail']='';
 // Flash message helper
 // example - flash('register_success', 'you are now registred');
 // display in view - echo flash(...)
@@ -37,12 +25,16 @@ function startUserSession($user){
     $_SESSION['userId']=$user->id;
     $_SESSION['userMail']=$user->email;
     $_SESSION['loggedIn']=true;
-    redirect('panel/'.$user->type);
+    redirect('panels/'.$user->type);
 }
 function endUserSession(){
-    $_SESSION['userType']='';
-    $_SESSION['userId']='';
-    $_SESSION['userMail']='';
-    $_SESSION['loggedIn']=false;
+    unset($_SESSION['userType']);
+    unset($_SESSION['userId']);
+    unset($_SESSION['userMail']);
+    unset($_SESSION['loggedIn']);
+    session_destroy();
     redirect('pages/index');
+}
+function isLoggedIn(){
+    return (isset($_SESSION['userId']));
 }

@@ -41,23 +41,23 @@
 						<div class="inner-navigation-inline">
 							<div class="inner-nav text-right">
 								<ul>
-								<?php if(!$_SESSION['loggedIn']){?>
+								<?php if(!isLoggedIn()):?>
               <li><a href="<?=URLROOT?>/users/login"><i class="fa fa-key"></i> S'authentifier</a></li>
 							<li><a href="<?=URLROOT?>/users/register"><i class="fa fa-plus"></i> Creer un compte</a></li>
-							<?php }
-								else{
-									if($_SESSION['userType']=='medecin'){
+							<?php 
+								else:
+									if($_SESSION['userType']=='medecin'):
 								?>
-								<li><a href="<?=URLROOT?>/panel/medecin"><i class="fa fa-stethoscope"></i> Mon compte</a></li>
-								<?php }
-									elseif($_SESSION['userType']=='patient'){
+								<li><a href="<?=URLROOT?>/panels/medecin"><i class="fa fa-stethoscope"></i> Mon compte</a></li>
+								<?php 
+									elseif ($_SESSION['userType']=='patient') :
 								?>
-								<li><a href="<?=URLROOT?>/panel/patient"><i class="fa fa-user-injured"></i> Mon compte</a></li>
-									<?php }
+								<li><a href="<?=URLROOT?>/panels/patient"><i class="fa fa-user-injured"></i> Mon compte</a></li>
+									<?php endif;
 								?>
 								<li><a href="<?=URLROOT?>/users/logout"><i class="fa fa-sign-out-alt"></i> Déconnexion</a></li>
 								<?php
-								} ?>
+								endif; ?>
 								</ul>
 							</div>
 						</div>
