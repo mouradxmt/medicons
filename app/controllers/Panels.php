@@ -30,7 +30,8 @@ class Panels extends Controller{
           notAuthorized();
         }else{
           // panel de medecin
-          $user=[
+          global $data;
+           $user=[
             'id'    =>  $_SESSION['userId'],
             'type'  =>  'medecin'
         ];

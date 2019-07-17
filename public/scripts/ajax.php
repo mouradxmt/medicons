@@ -1,4 +1,7 @@
+<?php
 
+//$data=$_REQUEST['input'];
+?>
 <table class="table table-striped">
                     <thead>
                       <tr>

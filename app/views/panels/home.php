@@ -42,6 +42,7 @@ $('#consultations').on('click',function(e){
 	$.ajax({
 			url: '<?=URLROOT?>/scripts/ajax.php', // la page ayant le tableau
 			dataType: 'html',
+			data: 'input='+<?=json_encode($data)?>,
 			beforeSend:function(){
         $('#dynamicContent').fadeOut('slow');
       },
@@ -50,5 +51,8 @@ $('#consultations').on('click',function(e){
       }
     });    
   });
-	
+	$('#test').on('click',function(e){
+		e.preventDefault();
+		$('#dynamicContent').load('<?=URLROOT?>/scripts/ajax.php');
+	});
 </script>
