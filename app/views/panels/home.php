@@ -37,22 +37,16 @@
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
 <script>
-$('#consultations').on('click',function(e){
-	e.preventDefault();
-	$.ajax({
-			url: '<?=URLROOT?>/scripts/ajax.php', // la page ayant le tableau
-			dataType: 'html',
-			data: 'input='+<?=json_encode($data)?>,
-			beforeSend:function(){
-        $('#dynamicContent').fadeOut('slow');
-      },
-      success:function(data){
-		$('#dynamicContent').html(data).fadeIn('slow');
-      }
-    });    
-  });
-	$('#test').on('click',function(e){
+
+
+	$('#consultations').on('click',function(e){
 		e.preventDefault();
-		$('#dynamicContent').load('<?=URLROOT?>/scripts/ajax.php');
+		$('#dynamicContent').load('<?=URLROOT?>/panels/consultations');
 	});
+	$('#consultationsAll').on('click',function(e){
+		e.preventDefault();
+		$('#dynamicContent').load('<?=URLROOT?>/panels/consultations/all');
+	});
+		
+
 </script>

@@ -30,7 +30,6 @@ class Panels extends Controller{
           notAuthorized();
         }else{
           // panel de medecin
-          global $data;
            $user=[
             'id'    =>  $_SESSION['userId'],
             'type'  =>  'medecin'
@@ -39,8 +38,6 @@ class Panels extends Controller{
         $data=[
           // parametres utilisees pour les sous panneau
           'params' => $page,
-          // resultats de consultation
-          'consul' => $this->panelModel->medConsulterAll('only','Attente'),
           'medecin' => $Medecin
         ];
          
@@ -54,4 +51,25 @@ class Panels extends Controller{
             // panel de l'admin
         }
       }
+      public function consultations($filter="only"){
+        if($_SESSION['userType']!='medecin'){
+          notAuthorized();
+        }else{
+          // panel de medecin
+           $user=[
+            'id'    =>  $_SESSION['userId'],
+            'type'  =>  'medecin'
+        ];
+        $Medecin=$this->panelModel->getPorMById($user);
+        $data=[
+          // resultats de consultation
+          'consul' => $this->panelModel->medConsulterAll($filter,'Attente'),
+          'medecin' => $Medecin
+        ];
+         
+            $this->view('panels/consultation',$data);
+        }
+      }
+
+      
 }
