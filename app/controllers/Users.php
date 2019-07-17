@@ -58,10 +58,7 @@ class Users extends Controller{
                     redirect('users/login');
                 }else{
                     die('Quelque chose qui ne va pas bien!');
-                }
-                // TODO: if medecin : formulaire medecin, if patient formulaire patient
-                
-            
+                }           
             }else{
                 
             $this->view('users/register',$data);
@@ -114,10 +111,12 @@ class Users extends Controller{
                     if($loggedIn){
                         // if the email and the password matchs the row in DB
                        startUserSession($loggedIn);
+                    }else{
+                        $data['password_err'] = 'Mot de passe incorrecte.';
                     }
-                }else{  
+                } 
                     $this->view('users/login',$data);
-                }}else{
+                }else{
                     $data = [
                         'email' => '',
                         'password' => '',

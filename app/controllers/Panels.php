@@ -3,7 +3,12 @@ class Panels extends Controller{
     public function __construct(){
       if(!isLoggedIn())
       notAuthorized();
+      $user=[
+        'id'    =>  $_SESSION['userId'],
+        'type'  =>  $_SESSION['userType'],
+         ];
         $this->panelModel=$this->model('Panel');
+        $this->activeUser=$this->panelModel->getPorMById($user);
     }
     public function index(){
 
@@ -12,7 +17,12 @@ class Panels extends Controller{
         if($_SESSION['userType']!='patient'){
           notAuthorized();
         }else{
-            // panel de patien
+
+          
+            // panel de patient
+            
+
+
         }
       }
       public function medecin($page='home'){

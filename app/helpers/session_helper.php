@@ -24,14 +24,14 @@ function startUserSession($user){
     $_SESSION['userType']=$user->type;
     $_SESSION['userId']=$user->id;
     $_SESSION['userMail']=$user->email;
-    $_SESSION['loggedIn']=true;
+    $_SESSION['userState']=$user->state;
     redirect('panels/'.$user->type);
 }
 function endUserSession(){
     unset($_SESSION['userType']);
     unset($_SESSION['userId']);
     unset($_SESSION['userMail']);
-    unset($_SESSION['loggedIn']);
+    unset($_SESSION['userState']);
     session_destroy();
     redirect('pages/index');
 }

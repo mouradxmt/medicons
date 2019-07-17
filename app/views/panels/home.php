@@ -1,4 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
+
 <section class="module-page-title">
 					<div class="container">
 						<div class="row-page-title">
@@ -26,11 +27,28 @@
               <div class="col-md-2">
               <?php require APPROOT . '/views/inc/sidePanelMed.php'; ?>
               </div>
-<div class = "col-md-10 " id="dynamicContent">
-          
+				<div class = "col-md-10 " id="dynamicContent">
+          Testing
+		 
                   </div>
 							</div>
 					</div>
 				</section>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
+<script>
+$('#consultations').on('click',function(e){
+	e.preventDefault();
+	$.ajax({
+			url: '<?=URLROOT?>/scripts/ajax.php', // la page ayant le tableau
+			dataType: 'html',
+			beforeSend:function(){
+        $('#dynamicContent').fadeOut('slow');
+      },
+      success:function(data){
+		$('#dynamicContent').html(data).fadeIn('slow');
+      }
+    });    
+  });
+	
+</script>

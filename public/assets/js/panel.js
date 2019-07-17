@@ -1,4 +1,4 @@
-$('#TestNumber1').on('click',function(e){
+$('#consultations').on('click',function(e){
     e.preventDefault();
-    $('#dynamicContent').html('Testiiiing success').fadeIn('slow');
+    $('#dynamicContent').html(<?php echo"kljp"; ?>'Testiiiing success').fadeIn('slow');
     });
