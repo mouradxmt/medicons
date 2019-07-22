@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <title> Renseignez-vous !</title>
+    <link rel="stylesheet" href="css/css/bootstrap.min.css">
+    <script>
+        function confirmer()
+        {
+            var c=confirm("ARE YOU SURE FROM YOUR DATA!?");
+            if(c)
+            {alert("DATA WELL SAVED!!");}
+        }
+       
+    </script>
+ </head>
+ <body >
+    
+    <div class="container">
+       <div class="row">
+           <div class="col-md-6 offset-3">
+               <legend>Renseignements m&eacute;decin </legend>
+                <form action="" method="POST" enctype="multipart/form-data">
+                   
+                    <div class="form-group">
+                        <label for="nom"> Nom :</label>
+                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom"> Pr&eacute;nom :</label>
+                        <input type="text" name="prenom" class="form-control" id="prenom" placeholder="prenom" required>
+                    </div>
+                    <div class="form-group">
+                            <label for="prenom">  Date de naissance :</label>
+                            <input type="date" name="date" class="form-control" id="date" required>
+                    </div>
+                    <div class="form-group">
+                            <label for="Sexe">  Sexe :</label>
+                            <select class="form-control" >
+                                <option value="Féminin"> F&eacute;minin</option>
+                                <option value="Masculin"> Masculin</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                            <label for="email"> E-mail :</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="exemple@email.com">
+                    </div>
+                    M&eacute;decin/Patient :
+                    <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="checkbox" name="m" class="form-check-input" id="m" >M&eacute;decin</label>
+                    </div>
+                    <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="checkbox" name="p" class="form-check-input" id="p" >Patient</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tel">Num&eacute;ro de t&eacute;l&eacute;phone :</label>
+                        <input type="tel" name="tel" id="tel" class="form-control" placeholder="06********">
+                    </div>
+                    
+                    <div class="form-group">
+                            <label for="spécialité"> Sp&eacute;cialit&eacute; :</label>
+                            <select class="form-control" id="service" requireds>
+                                <option value="Pédo">P&eacute;dologue</option>
+                                <option value="Neuro">Neurologue</option>
+                                <option value="Cardio">Cardiologue</option>
+                                <option value="gynéco">Gyn&eacute;cologue</option>
+                                <option value="Nephro">N&eacute;phrologue</option>
+                                <option value="pneumo">Pneumologue</option>
+                            </select>
+                    </div>
+                   
+
+                    <button type="submit" class="btn btn-primary" onclick="confirmer()">Envoyer</button>
+                    <button type="reset" class="btn btn-secondary" >Annuler</button>
+
+                    
+                 </form>
+                
+            </div>
+        </div>
+    </div>
+
+      
+ </body>
+
+</html>

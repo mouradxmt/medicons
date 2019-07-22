@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <title> Renseignez-vous !</title>
+    <link rel="stylesheet" href="css/css/bootstrap.min.css">
+    <script>
+        function confirmer()
+        {
+            var c=confirm("êtes vous sur de vos coordonnées!?");
+            if(c)
+            {alert("données bien enregistrées!");}
+        }
+    </script>
+ </head>
+ <body >
+    
+    <div class="container">
+       <div class="row">
+           <div class="col-md-6 offset-3">
+               <legend>Informations patient </legend>
+                <form action="" method="POST" enctype="multipart/form-data">
+                   
+                    <div class="form-group">
+                        <label for="nom"> Nom :</label>
+                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom"> Pr&eacute;nom :</label>
+                        <input type="text" name="prenom" class="form-control" id="prenom" placeholder="prenom">
+                    </div>
+                    <div class="form-group">
+                            <label for="prenom">  Date de naissance :</label>
+                            <input type="date" name="date" class="form-control" id="date">
+                    </div>
+                    <div class="form-group">
+                            <label for="Sexe">  Sexe :</label>
+                            <select class="form-control" >
+                                <option value="Féminin"> F&eacute;minin</option>
+                                <option value="Masculin"> Masculin</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                            <label for="email"> E-mail :</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="exemple@email.com">
+                    </div>
+                    <div class="form-group">
+                            <label for="password"> Mot de passe :</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="********">
+                    </div>
+                    <div class="form-group">
+                            <label for="adresse"> Adresse :</label>
+                            <textarea  name="adresse" class="form-control" id="adresse" cols="25" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">Num&eacute;ro de t&eacute;l&eacute;phone :</label>
+                        <input type="tel" name="tel" id="tel" class="form-control" placeholder="06********">
+                    </div>
+                    <div class="form-group">
+                            <label for="service"> Service :</label>
+                            <select class="form-control" id="service" >
+                                <option value="Pédo">P&eacute;dologie</option>
+                                <option value="Neuro">Neurologie</option>
+                                <option value="Cardio">Cardiologie</option>
+                                <option value="gynéco">Gyn&eacute;cologie</option>
+                                <option value="Nephro">N&eacute;phrologie</option>
+                                <option value="pneumo">Pneumologie</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                            <label for="medecin"> Médecin :</label>
+                            <select class="form-control" id="medecin" >
+                                <option value="M.Elmerrakchi">M.Elmerrakchi</option>
+                                <option value="N.Tazi">N.Tazi</option>
+                                <option value="A.Sqelli">A.Sqelli</option>
+                                <option value="W.Elmassri">W.Elmassri</option>
+                                <option value="S.Elidrissi">S.Elidrissi</option>
+                                <option value="F.Elwafi">F.Elwafi</option>
+                            </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" onclick="confirmer()">Envoyer</button>
+                    <button type="reset" class="btn btn-secondary" >Annuler</button>
+                 </form>
+                
+            </div>
+        </div>
+    </div>
+
+      
+ </body>
+
+</html>

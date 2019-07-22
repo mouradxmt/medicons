@@ -112,9 +112,44 @@
 		<script src="<?=URLROOT?>/assets/js/plugins.min.js"></script>
 		<script src="<?=URLROOT?>/assets/js/charts.js"></script>
 		<script src="<?=URLROOT?>/assets/js/custom.min.js"></script>
-		<script src="<?=URLROOT?>/assets/js/panel.js"></script>
-		
-
+		<script>
+function editCons(id) {
+    console.log(id)
+    $('#dynamicContent').load('<?=URLROOT?>/panels/editCons/' + id);
+}
+function deleteCons(id) {
+    console.log(id)
+    $('#dynamicContent').load('<?=URLROOT?>/panels/deleteCons/' + id);
+}
+$('#consultationsMe').on('click', function(e) {
+    e.preventDefault();
+    $('#dynamicContent').load('<?=URLROOT?>/panels/consultations');
+});
+$('#profile').on('click', function(e) {
+    e.preventDefault();
+    $('#dynamicContent').load('<?=URLROOT?>/panels/profile');
+});
+$('#consultationsMeAtt').on('click', function(e) {
+    e.preventDefault();
+    $('#dynamicContent').load('<?=URLROOT?>/panels/consultations/only/Attente');
+});
+$('#consultationsAll').on('click', function(e) {
+    e.preventDefault();
+    $('#dynamicContent').load('<?=URLROOT?>/panels/consultations/all');
+});
+$('#consultationsAllAtt').on('click', function(e) {
+    e.preventDefault();
+    $('#dynamicContent').load('<?=URLROOT?>/panels/consultations/all/Attente');
+});
+$('#askConsult').on('click', function(e) {
+    e.preventDefault();
+    $('#dynamicContent').load('<?=URLROOT?>/panels/askConsult');
+});
+$('#mesConsultations').on('click', function(e) {
+    e.preventDefault();
+    $('#dynamicContent').load('<?=URLROOT?>/panels/mesConsultations');
+});
+</script>
 	</body>
 
 </html>

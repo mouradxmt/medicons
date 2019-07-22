@@ -24,6 +24,8 @@
 		<link href="<?=URLROOT?>/assets/css/plugins.min.css" rel="stylesheet">
 		<!-- Template core CSS-->
 		<link href="<?=URLROOT?>/assets/css/template.min.css" rel="stylesheet">
+		
+		<link href="<?=URLROOT?>/assets/css/customv4.css" rel="stylesheet">
 	</head>
 	<body>
 
