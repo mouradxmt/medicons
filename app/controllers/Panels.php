@@ -26,7 +26,9 @@ class Panels extends Controller
         'params' => $page,
         'patient' => $this->activeUser
       ];
-
+      if($_SESSION['userState']=='incomplet')
+      $this->view('panels/initialForm', $data);
+      else
       $this->view('panels/home', $data);
     }
   }
@@ -38,9 +40,12 @@ class Panels extends Controller
       $data = [
         // parametres utilisees pour les sous panneau
         'params' => $page,
-        'medecin' => $this->activeUser
+        'medecin' => $this->activeUser,
+        'services' => $this->panelModel->listeServices()
       ];
-
+      if($_SESSION['userState']=='incomplet')
+      $this->view('panels/initialForm', $data);
+      else
       $this->view('panels/home', $data);
     }
   }
@@ -194,5 +199,29 @@ class Panels extends Controller
       $this->view('panels/mesConsultations', $data);
     }
 
+  }
+  public function createProfile(){
+    if(isLoggedIn() && $_SESSION['userState']=='incomplet' ){
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $data=[
+          'nom' => $_POST['nom'],
+          'prenom' => $_POST['prenom'],
+          'dateNaissance' => $_POST['dateNaissance'],
+          'sexe' => $_POST['sexe'],
+          'adresse' => $_POST['adresse']
+        ];
+        if($_SESSION['userType']=='medecin'){
+          $med=[
+            'codeService' => $_POST['codeService']
+          ];
+          $data=array_merge($data,$med);
+        }
+        if(!$this->panelModel->createProfile($data)){
+          flash('ErrorProfileCreate','Erreur dans la creation du profile!','alert alert-danger');
+        }
+    }else {
+      flash('ErrorProfileCreate','Erreur dans la creation du profile!','alert alert-danger');
+    }
+    redirect('panels/'.$_SESSION['userType']);
   }
 }

@@ -684,3 +684,6 @@ Sub title
   -o-animation:      loading 1s infinite; /* Opera 12+ */
   animation:         loading 1s infinite; /* IE 10+ */
 }
+.form-group {
+    margin-bottom: 2rem;
+}

@@ -34,8 +34,12 @@
 </section>
 <section class="module">
     <div class="container-fluid">
-        <h3 class='text-center'>Bonjour Mr/Mme <?=$data['patient']->nomPatient.' '.$data['patient']->prenomPatient?> </h3>
-
+        <?php if($_SESSION['userType']=='patient'):?>
+        <h3 class='text-center'>Bonjour Mr/Mme <?=$data['patient']->nomPatient.' '.$data['patient']->prenomPatient?>
+        </h3>
+                    <?php endif; if($_SESSION['userType']=='medecin'):?>
+        <h3 class='text-center'>Bonjour Dr. <?=$data['medecin']->nomMedecin.' '.$data['medecin']->prenomMedecin?> </h3>
+        <?php endif;?>
         <div class="row">
             <div class="col-md-2">
                 <?php require APPROOT . '/views/inc/sidePanel.php'; ?>

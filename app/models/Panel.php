@@ -126,4 +126,33 @@ class Panel{
         $rows= $this->db->resultSet();
         return $rows;
     }
+    public function createProfile($data)
+    {
+        if ($_SESSION['userType'] == 'patient') {
+            $sql = "INSERT INTO patient (nomPatient,prenomPatient,adressePatient,sexePatient,dateNaissancePatient,userId) ";
+            $sql .= "VALUES (:nom,:prenom,:adresse,:sexe,:dateNaissance,:userId) ";
+        } elseif ($_SESSION['userType'] == 'medecin') {
+            $sql = "INSERT INTO medecin (nomMedecin,prenomMedecin,adresseMedecin,sexeMedecin,dateNaissanceMedecin,codeService,userId) ";
+            $sql .= "VALUES (:nom,:prenom,:adresse,:sexe,:dateNaissance,:codeService,:userId) ";
+        }
+        $this->db->query($sql);
+        $this->db->bind(':nom', $data['nom']);
+        $this->db->bind(':prenom', $data['prenom']);
+        $this->db->bind(':sexe', $data['sexe']);
+        $this->db->bind(':dateNaissance', $data['dateNaissance']);
+        $this->db->bind(':adresse', $data['adresse']);
+        $this->db->bind(':userId', $_SESSION['userId']);
+        if ($_SESSION['userType'] == 'medecin')
+            $this->db->bind(':codeService', $data['codeService']);
+        $answer = $this->db->execute();
+         $this->db->query("UPDATE users SET state = 'complet' WHERE id=".$_SESSION['userId']);
+         $updateState =$this->db->execute();
+        $_SESSION['userState']='complet';
+        return $answer && $updateState;
+    }
+    public function listeServices(){
+    $sql = 'SELECT * FROM service';
+    $this->db->query($sql);
+    return $this->db->resultSet();
+    }
 }
