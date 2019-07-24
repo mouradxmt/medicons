@@ -7,7 +7,7 @@
 								<aside class="widget widget_text">
 									<div class="textwidget">
 										<p><img src="<?=SITELOGOLIGHT?>" width="100" alt=""></p>
-										<p>MEDICONS est une plateforme de consultation médicale, réalise en premier lieu dans un stage d'initiation au CHU par des étudiants ingénieurs de l'ENSA - Fès en génie Informatique.</p>
+										<p>MEDICONS est une plateforme de consultation médicale, realisé en premier lieu dans un stage d'initiation au CHU par des étudiants ingénieurs de ENSA - Fès en génie Informatique.</p>
 									</div>
 								</aside>
 							</div>
@@ -17,8 +17,8 @@
 									<div class="widget-title">
 										<h5>Contact</h5>
 									</div>
-									E-mail: <a href="mailto:mtouaa.mourad@gmail.com">mtouaa.mourad@gmail.com</a> <br/>
-										Phone: +212 659 01 81 66 <br/>
+									E-mail : <a href="mailto:mtouaa.mourad@gmail.com">mtouaa.mourad@gmail.com</a> <br/>
+										Phone : +212 659 01 81 66 <br/>
 								</aside>
 							</div>
 							<div class="col-md-6 col-lg-3">

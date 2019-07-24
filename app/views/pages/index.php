@@ -8,9 +8,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="h1 wow fadeInDown">MEDICONS </h1>
-                        <h1 class="h1 m-b-20 wow fadeInDown" data-wow-delay="0.5s">Gestion de consultaion medicale</h1>
-                        <p class="m-b-40 wow fadeInDown" data-wow-delay="0.7s">Un systeme de gestion de consultation
-                            medicale.</p>
+                        <h1 class="h1 m-b-20 wow fadeInDown" data-wow-delay="0.5s">Gestion de consultation médicale</h1>
+                        <p class="m-b-40 wow fadeInDown" data-wow-delay="0.7s">Un système de gestion de consultation médicale.</p>
                         <p><a class="btn btn-circle btn-lg btn-brand wow fadeInDown" data-wow-delay="0.9s"
                                 href="#">Commençons!</a></p>
                     </div>
@@ -22,9 +21,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="h1 wow fadeInDown">MEDICONS</h1>
-                        <h1 class="h1 m-b-20 wow fadeInDown" data-wow-delay="0.5s">Gestion de consultaion medicale</h1>
-                        <p class="m-b-40 wow fadeInDown" data-wow-delay="0.7s">Un systeme de gestion de consultation
-                            medicale.</p>
+                        <h1 class="h1 m-b-20 wow fadeInDown" data-wow-delay="0.5s">Gestion de consultation médicale</h1>
+                        <p class="m-b-40 wow fadeInDown" data-wow-delay="0.7s">Un système de gestion de consultation médicale.</p>
                         <p><a class="btn btn-circle btn-lg btn-brand wow fadeInDown" data-wow-delay="0.9s"
                                 href="#">Commençons!</a></p>
                     </div>
@@ -36,9 +34,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="h1 wow fadeInDown">MEDICONS</h1>
-                        <h1 class="h1 m-b-20 wow fadeInDown" data-wow-delay="0.5s">Gestion de consultaion medicale</h1>
-                        <p class="m-b-40 wow fadeInDown" data-wow-delay="0.7s">Un systeme de gestion de consultation
-                            medicale.</p>
+                        <h1 class="h1 m-b-20 wow fadeInDown" data-wow-delay="0.5s">Gestion de consultation médicale</h1>
+                        <p class="m-b-40 wow fadeInDown" data-wow-delay="0.7s">Un système de gestion de consultation médicale.</p>
                         <p><a class="btn btn-circle btn-lg btn-brand wow fadeInDown" data-wow-delay="0.9s"
                                 href="#">Commençons!</a></p>
                     </div>

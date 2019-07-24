@@ -107,10 +107,10 @@ class Panels extends Controller
       ];
       if ($data['consultation']->codeMedecin == $data['medecin']->codeMedecin) {
         if ($this->panelModel->deleteCons($id)) {
-          flash('EtatPostEditCons', "La consultation a été supprimé avec succes!", 'alert alert-success');
+          flash('EtatPostEditCons', "Suppression réussie!", 'alert alert-success');
         }
       }
-        flash('EtatPostEditCons', "Vous n'avez pas le droit de supprimer une consultation d'autre medecin", 'alert alert-danger');
+        flash('EtatPostEditCons', "Autorisation refusée", 'alert alert-danger');
     }
     echo flash('EtatPostEditCons');
   }
@@ -136,17 +136,17 @@ class Panels extends Controller
             'journalClinique' => trim($_POST['journalClinique'])
           ];
           if ($this->panelModel->updateConsultation($newData)) {
-            flash('EtatPostEditCons', "La consultation a été modifié avec succes!", 'alert alert-success');
+            flash('EtatPostEditCons', "Modification effectuée!", 'alert alert-success');
           } else {
-            flash('EtatPostEditCons', "Quelque chose qui ne va pas correctement!", 'alert alert-danger');
+            flash('EtatPostEditCons', "oops! erreur inattendue!", 'alert alert-danger');
           }
           redirect('panels/medecin');
         } else {
-          flash('EtatPostEditCons', "Vous n'avez pas le droit de modifier une consultation d'autre medecin", 'alert alert-danger');
+          flash('EtatPostEditCons', "Autorisation refusée", 'alert alert-danger');
           redirect('panels/medecin');
         }
       } else {
-        flash('EtatPostEditCons', "Veuiller entrer tous les valeurs correctement", 'alert alert-danger');
+        flash('EtatPostEditCons', "Veuiller remplir tous les champs requis!", 'alert alert-danger');
         redirect('panels/medecin');
       }
     }
@@ -169,7 +169,7 @@ class Panels extends Controller
       notAuthorized();
     } else {
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (isset($_POST['dateConsultation']) && isset($_POST['codeMedecin'])) {
+        if (!empty($_POST['dateConsultation']) && isset($_POST['codeMedecin'])) {
           $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
           $data = [
             'IP' => $id,
@@ -177,12 +177,12 @@ class Panels extends Controller
             'dateConsultation' => $_POST['dateConsultation']
           ];
           if ($this->panelModel->askConsult($data)) {
-            flash('EtatPostEditCons', "La consultation a été crée avec succes!", 'alert alert-success');
+            flash('EtatPostEditCons', "Votre rendez-vous a été crée avec succés!", 'alert alert-success');
           } else {
-            flash('EtatPostEditCons', "Quelque chose qui ne va pas correctement!", 'alert alert-danger');
+            flash('EtatPostEditCons', "oops! erreur inattendue!", 'alert alert-danger');
           }
         } else {
-          flash('EtatPostEditCons', "Veuillez entrer tout les valeurs correctement!", 'alert alert-danger');
+          flash('EtatPostEditCons', "Veuiller remplir tous les champs requis!", 'alert alert-danger');
         }
       }
     }
@@ -217,10 +217,10 @@ class Panels extends Controller
           $data=array_merge($data,$med);
         }
         if(!$this->panelModel->createProfile($data)){
-          flash('ErrorProfileCreate','Erreur dans la creation du profile!','alert alert-danger');
+          flash('ErrorProfileCreate','Erreur de création du profile!','alert alert-danger');
         }
     }else {
-      flash('ErrorProfileCreate','Erreur dans la creation du profile!','alert alert-danger');
+      flash('ErrorProfileCreate','Erreur de création du profile!','alert alert-danger');
     }
     redirect('panels/'.$_SESSION['userType']);
   }

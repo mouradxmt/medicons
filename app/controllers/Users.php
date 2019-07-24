@@ -31,7 +31,7 @@ class Users extends Controller{
                 $data['email_err'] = 'Veuillez entrer votre adresse e-mail.';
             }else{
                 if($this->userModel->findUserByEmail($data['email'])){
-                    $data['email_err'] = 'Email deja enregistré, veuillez vous connecter';
+                    $data['email_err'] = 'Email déja enregistré, veuillez vous connecter';
                 }
             }
             if(!($data['type']=='medecin' || $data['type']=='patient')){
@@ -43,10 +43,10 @@ class Users extends Controller{
                 $data['password_err'] .= 'Votre mot de passe doit être au moins 6 caracteres';
             }
             if(empty($data['confirm_pass'])){
-                $data['confirm_pass_err'] = 'Veuillez entrer la confirmation de votre mot de passe.';
+                $data['confirm_pass_err'] = 'Veuillez confirmer votre mot de passe.';
             }else{
                 if($data['password']!=$data['confirm_pass'])
-                $data['confirm_pass_err'] = 'Mot de passe et confirmer le mot de passe ne correspond pas';
+                $data['confirm_pass_err'] = 'La confirmation ne correspond pas au mot de passe';
             }
 
             if(empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_pass_err']) && empty($data['type_err'])){
@@ -100,7 +100,7 @@ class Users extends Controller{
                     $data['email_err'] = 'Veuillez entrer votre adresse e-mail.';
                 }elseif(!($this->userModel->findUserByEmail($data['email']))){
                     // if the email exists does not exist
-                    $data['email_err'] = 'Cet adresse e-mail est introuvable.';
+                    $data['email_err'] = 'Adresse e-mail introuvable.';
                 }
                 if(empty($data['password'])){
                     $data['password_err'] = 'Veuillez entrer votre mot de passe.';
