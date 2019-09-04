@@ -5,7 +5,14 @@
         <div class="row-page-title">
             <div class="page-title-captions">
 
-                <?php if($_SESSION['userType']=='medecin'):?>
+            <?php if($_SESSION['userType']=='admin'):?>
+                <h1 class="h5">
+                    Administration:
+                </h1>
+                <?php 
+                endif;
+                
+                if($_SESSION['userType']=='medecin'):?>
                 <h1 class="h5">
                     Consultations:
                     <small
@@ -13,6 +20,7 @@
                 </h1>
                 <?php 
                 endif;
+
                 if($_SESSION['userType']=='patient'):?>
                 <h1 class="h5">
                     Ma plateforme:

@@ -114,11 +114,9 @@
 		<script src="<?=URLROOT?>/assets/js/custom.min.js"></script>
 		<script>
 function editCons(id) {
-    console.log(id)
     $('#dynamicContent').load('<?=URLROOT?>/panels/editCons/' + id);
 }
 function deleteCons(id) {
-    console.log(id)
     $('#dynamicContent').load('<?=URLROOT?>/panels/deleteCons/' + id);
 }
 $('#consultationsMe').on('click', function(e) {

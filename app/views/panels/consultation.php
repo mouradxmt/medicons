@@ -11,16 +11,13 @@
             <th>Etat</th>
             <th>Date de consultation</th>
             <th>Médecin</th>
-            <th style="width:20%">Journal Clinique</th>
+            <th style="width:20%">Observation</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
 
-        <?php 
-                
-                    foreach($data['consul'] as $id => $Consultation) {
-                ?>
+        <?php  foreach($data['consul'] as $Consultation) : ?>
 
         <tr>
             <td class="text-center"><?=$Consultation->numeroConsultation?></td>
@@ -48,7 +45,7 @@
             </td>
 
         </tr>
-        <?php } ?>
+        <?php endforeach; ?>
 
     </tbody>
 </table>

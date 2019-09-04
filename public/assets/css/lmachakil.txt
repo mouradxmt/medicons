@@ -1,0 +1,68 @@
+﻿// 110
+   flash('EtatPostEditCons', "Suppression réussie!", 'alert alert-success');
+        }
+      }
+        flash('EtatPostEditCons', "Autorisation refusée", 'alert alert-danger');
+    }
+// 138
+ if ($this->panelModel->updateConsultation($newData)) {
+            flash('EtatPostEditCons', "Modification effectuée!", 'alert alert-success');
+          } else {
+            flash('EtatPostEditCons', "oops! erreur inattendue!", 'alert alert-danger');
+          }
+          redirect('panels/medecin');
+        } else {
+          flash('EtatPostEditCons', "Autorisation refusée", 'alert alert-danger');
+          redirect('panels/medecin');
+        }
+      } else {
+        flash('EtatPostEditCons', "Veuiller remplir tous les champs requis!", 'alert alert-danger');
+        redirect('panels/medecin');
+      }
+    }
+
+// 180 controller/panels.php
+ flash('EtatPostEditCons', "Votre rendez-vous a été crée avec succés!", 'alert alert-success');
+          } else {
+            flash('EtatPostEditCons', "oops! erreur inattendue!", 'alert alert-danger');
+          }
+        } else {
+          flash('EtatPostEditCons', "Veuiller remplir tous les champs requis!", 'alert alert-danger');
+
+// 220
+   if(!$this->panelModel->createProfile($data)){
+          flash('ErrorProfileCreate','Erreur de création du compte!','alert alert-danger');
+        }
+    }else {
+      flash('ErrorProfileCreate','Erreur de création du compte!','alert alert-danger');
+
+// 31 controller/users.php
+  $data['email_err'] = 'Veuillez entrer votre adresse e-mail.';
+            }else{
+                if($this->userModel->findUserByEmail($data['email'])){
+                    $data['email_err'] = 'Email déja enregistré, veuillez vous connecter';
+                }
+            }
+            if(!($data['type']=='medecin' || $data['type']=='patient')){
+                $data['type_err'] = 'Veuiller confirmer si vous êtes patient ou médecin.';
+            }
+            if(empty($data['password'])){
+                $data['password_err'] = 'Veuillez entrer votre mot de passe.';
+            }elseif(strlen($data['password'])<6){
+                $data['password_err'] .= 'Votre mot de passe doit être au moins 6 caracteres';
+            }
+            if(empty($data['confirm_pass'])){
+                $data['confirm_pass_err'] = 'Veuillez confirmer votre mot de passe.';
+            }else{
+                if($data['password']!=$data['confirm_pass'])
+                $data['confirm_pass_err'] = 'La confirmation ne correspond pas au mot de passe';
+            }
+// 100
+  $data['email_err'] = 'Veuillez entrer votre adresse e-mail.';
+                }elseif(!($this->userModel->findUserByEmail($data['email']))){
+                    // if the email exists does not exist
+                    $data['email_err'] = 'Adresse e-mail introuvable.';
+                }
+                if(empty($data['password'])){
+                    $data['password_err'] = 'Veuillez entrer votre mot de passe.';
+                }

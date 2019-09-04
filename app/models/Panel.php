@@ -11,7 +11,7 @@ class Panel{
             'email' => $_SESSION['userMail'],
             'state' => $_SESSION['userState']
              ];
-        $codePorM=$this->getPorMById($user)->codeMedecin;
+        $codePorM=($user['type']=='medecin') ? $this->getPorMById($user)->codeMedecin : null;
         $sql = "SELECT * ";
         $sql .="FROM patient,medecin,consultation,service ";
         $sql .="WHERE medecin.codeService = service.codeService ";

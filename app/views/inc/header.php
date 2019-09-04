@@ -53,8 +53,11 @@
 								<li><a href="<?=URLROOT?>/panels/medecin"><i class="fa fa-stethoscope"></i> Mon compte</a></li>
 								<?php 
 									elseif ($_SESSION['userType']=='patient') :
+										?>
+										<li><a href="<?=URLROOT?>/panels/patient"><i class="fa fa-user-injured"></i> Mon compte</a></li>
+								<?php elseif ($_SESSION['userType']=='admin') :
 								?>
-								<li><a href="<?=URLROOT?>/panels/patient"><i class="fa fa-user-injured"></i> Mon compte</a></li>
+								<li><a href="<?=URLROOT?>/panels/admin"><i class="fa fa-cog"></i> Administration</a></li>
 									<?php endif;
 								?>
 								<li><a href="<?=URLROOT?>/users/logout"><i class="fa fa-sign-out-alt"></i> Déconnexion</a></li>

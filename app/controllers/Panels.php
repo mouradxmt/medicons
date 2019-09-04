@@ -12,10 +12,12 @@ class Panels extends Controller
       'state' => $_SESSION['userState']
     ];
     $this->panelModel = $this->model('Panel');
+    if($_SESSION['userType']=='patient' || $_SESSION['userType']=='medecin')
     $this->activeUser = $this->panelModel->getPorMById($user);
   }
   public function index()
-  { }
+  { 
+  }
   public function patient($page="home")
   {
     if ($_SESSION['userType'] != 'patient') {
@@ -49,12 +51,17 @@ class Panels extends Controller
       $this->view('panels/home', $data);
     }
   }
-  public function admin()
+  public function admin($page='home')
   {
     if ($_SESSION['userType'] != 'admin') {
       notAuthorized();
     } else {
-      // panel de l'admin
+      $data = [
+        // parametres utilisees pour les sous panneau
+        'params' => $page,
+      ];
+    
+      $this->view('panels/home', $data);
     }
   }
   public function profile()
@@ -68,13 +75,13 @@ class Panels extends Controller
   }
   public function consultations($filter = "only", $etat = "")
   {
-    if ($_SESSION['userType'] != 'medecin') {
+    if ($_SESSION['userType'] != 'medecin' && $_SESSION['userType'] != 'admin') {
       notAuthorized();
     } else {
       $data = [
         // resultats de consultation
         'consul' => $this->panelModel->medConsulterAll($filter, $etat),
-        'medecin' => $this->activeUser
+        'medecin' => ($_SESSION['userType'] == 'medecin') ? $this->activeUser : null
       ];
 
       $this->view('panels/consultation', $data);
@@ -82,13 +89,13 @@ class Panels extends Controller
   }
   public function editCons($id)
   {
-    if ($_SESSION['userType'] != 'medecin') {
+    if ($_SESSION['userType'] != 'medecin' && $_SESSION['userType'] != 'admin' ) {
       notAuthorized();
     } else {
       $data = [
         // resultats de consultation
         'consultation' => $this->panelModel->medConsulter($id),
-        'medecin' => $this->activeUser,
+        'medecin' => ($_SESSION['userType'] == 'medecin') ? $this->activeUser : null,
         'id' => $id
       ];
       $this->view('panels/editCons', $data);
@@ -96,16 +103,16 @@ class Panels extends Controller
   }
   public function deleteCons($id)
   {
-    if ($_SESSION['userType'] != 'medecin') {
+    if ($_SESSION['userType'] != 'medecin' && $_SESSION['userType'] != 'admin') {
       notAuthorized();
     } else {
       $data = [
         // resultats de consultation
         'consultation' => $this->panelModel->medConsulter($id),
-        'medecin' => $this->activeUser,
+        'medecin' => ($_SESSION['userType'] == 'medecin') ? $this->activeUser : null,
         'id' => $id
       ];
-      if ($data['consultation']->codeMedecin == $data['medecin']->codeMedecin) {
+      if($_SESSION['userType'] == 'admin' || (($_SESSION['userType'] == 'medecin') ? ($data['consultation']->codeMedecin == $data['medecin']->codeMedecin):false )) {
         if ($this->panelModel->deleteCons($id)) {
           flash('EtatPostEditCons', "Suppression réussie!", 'alert alert-success');
         }
@@ -117,17 +124,17 @@ class Panels extends Controller
   public function editConsAction($id)
   {
 
-    if ($_SESSION['userType'] != 'medecin') {
+    if ($_SESSION['userType'] != 'medecin' && $_SESSION['userType'] != 'admin') {
       notAuthorized();
     } else {
       $data = [
         // resultats de consultation
         'consultation' => $this->panelModel->medConsulter($id),
-        'medecin' => $this->activeUser,
+        'medecin' => ($_SESSION['userType'] == 'medecin') ? $this->activeUser : null,
         'id' => $id
       ];
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (isset($_POST['etatConsultation']) && isset($_POST['dateConsultation']) && isset($_POST['journalClinique']) && $data['medecin']->codeMedecin == $data['consultation']->codeMedecin) {
+        if (isset($_POST['etatConsultation']) && !empty($_POST['dateConsultation']) && isset($_POST['journalClinique']) && ($data['medecin']->codeMedecin == $data['consultation']->codeMedecin || $_SESSION['userType'] == 'admin')) {
           $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
           $newData = [
             'numeroConsutlation' => $id,
@@ -140,14 +147,14 @@ class Panels extends Controller
           } else {
             flash('EtatPostEditCons', "oops! erreur inattendue!", 'alert alert-danger');
           }
-          redirect('panels/medecin');
+          redirect('panels/'.$_SESSION['userType']);
         } else {
           flash('EtatPostEditCons', "Autorisation refusée", 'alert alert-danger');
-          redirect('panels/medecin');
+          redirect('panels/'.$_SESSION['userType']);
         }
       } else {
         flash('EtatPostEditCons', "Veuiller remplir tous les champs requis!", 'alert alert-danger');
-        redirect('panels/medecin');
+        redirect('panels/'.$_SESSION['userType']);
       }
     }
   }
