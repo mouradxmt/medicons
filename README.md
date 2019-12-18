@@ -1,4 +1,4 @@
-![Logo](https://github.com/mouradxmt/medicons/blob/master/doc/logo.png)
+![Logo](https://github.com/mouradxmt/medicons/blob/master/public/doc/logo.png)
 ## A propos
 MEDICONS est une plateforme de consultation médicale , réalisé en premier lieu dans un stage d'initiation au CHU par des étudiants ingénieurs de l'ENSA - Fès en génie Informatique.
 ## Auteurs
@@ -10,4 +10,4 @@ MEDICONS est une plateforme de consultation médicale , réalisé en premier lie
 * Core template (Bootstrap)
 * Système MVC
 ## Screenshots
-![Page d'acceuil](https://github.com/mouradxmt/medicons/blob/master/doc/docLogged.png)
+![Page d'acceuil](https://github.com/mouradxmt/medicons/blob/master/public/doc/docLogged.png)
