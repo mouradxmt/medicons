@@ -46,7 +46,7 @@ class Panel{
         $row->type=$user['type'];
         $row->email = $user['email'];
         $row->state = $user['state'];
-
+        
         return $row;
     }
     public function medConsulter($id){
